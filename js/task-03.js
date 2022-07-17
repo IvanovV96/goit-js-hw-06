@@ -13,10 +13,7 @@ const images = [
   },
 ];
 
-const addGalleryMarkup = () => {
+const addGalleryMarkup = gallery => gallery.map(({url, alt}) => `<li><img src ="${url}"alt = "${alt}"></li>`)
 const _gallery = document.querySelector('.gallery')
-const markup = images
-.map(img => `<li><img src ="${img.url}"alt = "${img.alt}"></li>`)
-_gallery.insertAdjacentHTML("afterbegin", markup)
-}
-addGalleryMarkup()
+console.log(addGalleryMarkup(images).join(''))
+_gallery.insertAdjacentHTML("afterbegin", addGalleryMarkup(images).join(''))
